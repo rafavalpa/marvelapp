@@ -1,0 +1,23 @@
+h1{
+  font-size: 5em;
+  padding: 50xp;
+  line-height:1em;
+  text-align: center;
+}
+
+h2{
+  display: flex;
+  align-items: center;
+  button{
+    font-size: 2em;
+    line-height:1em;
+    text-align: center;
+    padding: 20px;
+    white-space: break-spaces;
+  }
+}
+
+
+article{
+  height: 90vh;
+}

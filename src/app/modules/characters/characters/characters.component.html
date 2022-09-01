@@ -1,0 +1,24 @@
+
+<app-characters-filter [filter]="filter" (reloadCharacters)="handleFilterChanged($event)"></app-characters-filter>
+<mat-paginator #paginator
+[pageSize]="pagination.pageSize"
+[pageSizeOptions]="[5, 10, 20]"
+[showFirstLastButtons]="true"
+[length]="pagination.totalCharacters"
+[pageIndex]="pagination.currentPage"
+(page)="handlePage($event)"
+>
+</mat-paginator>
+<ng-container  *ngIf="pagination.characters!.length!>0; else noCharacters">
+
+  <div class="characters-content" fxLayout.lt-md="column wrap" fxLayout="row wrap" fxLayoutAlign="space-around">
+    <ng-container *ngFor="let character of pagination.characters">
+      <app-character [character]="character" fxFlex.gt-xs="50%"></app-character>
+    </ng-container>
+  </div>
+</ng-container>
+<ng-template #noCharacters>
+  <div class="characters-content" fxLayout.xs="column wrap" fxLayout="row wrap" fxLayoutAlign="space-around">
+    <div>There are no Characteres loaded</div>
+  </div>
+</ng-template>

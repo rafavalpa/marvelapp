@@ -1,0 +1,22 @@
+img{
+  width: 100%;
+}
+
+::ng-deep .mat-card-header > div.mat-card-header-text{
+  margin: 0px;
+}
+
+::ng-deep .mat-card{
+  height: 100%;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+section{
+  padding: 5px;
+}
+
+
+
+

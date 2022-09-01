@@ -1,0 +1,7 @@
+<h4>Appearing Events</h4>
+<mat-chip-list class="event-container" *ngIf="events!.length>0; else noEvents">
+  <ng-container *ngFor="let event of events">
+    <app-character-event [event]="event"></app-character-event>
+  </ng-container>
+</mat-chip-list>
+<ng-template #noEvents>This Character has no appearing Events</ng-template>

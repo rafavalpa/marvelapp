@@ -1,0 +1,24 @@
+
+<div class="breadcrump" fxFlexAlign="center">
+  <button mat-flat-button routerLink="/characters">
+    <span>Back to Characters</span>
+  </button>
+</div>
+
+<article *ngIf="character$ | async as character" fxLayout.lt-md="column" fxLayout="row" fxLayoutAlign="space-around">
+  <section class="image-container" fxFlex="2 1 0">
+    <!--<img [src]="character.thumbnail.path">-->
+    <img src="/assets/empty-character.jpg">
+  </section>
+  <section fxFlex="3 1 0">
+    <mat-card-header>
+      <mat-card-title>{{character.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="description">
+        {{character.description || 'Character Without Description'}}
+      </p>
+      <app-character-events [events]="character.events.items"></app-character-events>
+    </mat-card-content>
+  </section>
+</article>

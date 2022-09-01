@@ -1,0 +1,22 @@
+
+<section class="filters" fxLayout="row" fxFlexAlign="center" fxLayout.lt-md="column" fxFlexAlign.lt-md="space-around">
+  <section class="text-filter">
+    <label>Search By Text: </label>
+    <mat-form-field  appearance="fill">
+      <input matInput placeholder="Write text to search" [value]="filter!.text" (change)="handleTextFilterChange($event)" >
+    </mat-form-field>
+  </section>
+  <section class="event-filter">
+    <label>Search By Event: </label>
+    <mat-form-field appearance="fill" *ngIf="events$ | async as events">
+      <mat-select [(value)]="filter!.selectedEvent"  [placeholder]="'All'">
+        <mat-option value="">All</mat-option>
+        <mat-option *ngFor="let event of events" value="{{event.id}}">{{event.title}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </section>
+  <section fxFlexAlign="center">
+    <button mat-raised-button color="primary" (click)="handleFilterClick()">Filter</button>
+  </section>
+</section>
+
